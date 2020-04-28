@@ -24,15 +24,15 @@ jobs:
     
     - name: Create namespace
       run: |
-        namespacePresent=`kubectl get namespace | grep development95ac | wc -l`
+        namespacePresent=`kubectl get namespace | grep development5b03 | wc -l`
         if [ $namespacePresent -eq 0 ]
         then
-            echo `kubectl create namespace development95ac`
+            echo `kubectl create namespace development5b03`
         fi
 
     - uses: azure/k8s-create-secret@v1
       with:
-        namespace: development95ac
+        namespace: development5b03
         container-registry-url: compulsoryassignmentacr.azurecr.io
         container-registry-username: ${{ secrets.acr_compulsoryassignmentacr_username }}
         container-registry-password: ${{ secrets.acr_compulsoryassignmentacr_password }}
@@ -40,10 +40,11 @@ jobs:
        
     - uses: azure/k8s-deploy@v1
       with:
-        namespace: development95ac
+        namespace: development5b03
         manifests: |
-          manifests/deployment.yml
-          manifests/service.yml
+          manifests/deployment-1.yml
+          manifests/service-1.yml
+          manifests/ingress.yml
         images: |
           compulsoryassignmentacr.azurecr.io/development:${{ github.sha }}
         imagepullsecrets: |
