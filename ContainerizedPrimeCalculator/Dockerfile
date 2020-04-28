@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["PrimeCalculator.csproj", "PrimeCalculator/"]
+COPY ["PrimeCalculator/PrimeCalculator.csproj", "PrimeCalculator/"]
 RUN dotnet restore "PrimeCalculator/PrimeCalculator.csproj"
 COPY . .
 WORKDIR "/src/PrimeCalculator"
