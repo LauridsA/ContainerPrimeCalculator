@@ -7,6 +7,10 @@ metadata:
     annotations:
         kubernetes.io/ingress.class: addon-http-application-routing
 spec:
+    tls:
+      - hosts:
+          - development5b03-development.4e4c97cac1024dfeab54.eastus.aksapp.io
+        secretName: tls-secret
     rules:
         - host: development5b03-development.4e4c97cac1024dfeab54.eastus.aksapp.io
           http:
