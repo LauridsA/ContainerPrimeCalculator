@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
     name: "development"
+    namespace: default
     labels:
         app: "development"
 spec:
