@@ -2,7 +2,6 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
     name: "development"
-    namespace: kube-system
     labels:
         app: "development"
     annotations:
